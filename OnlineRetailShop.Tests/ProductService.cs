@@ -48,14 +48,13 @@ namespace OnlineRetailShop.Tests
             var product = new ProductInput()
             {
                 ProductId = Guid.NewGuid(),
-                ProductName = "IPhone 13",
+                ProductName = "IPhone4",
                 Quantity = 150
             };   
             var addProduct = productService.AddProduct(product);
             var valConv = JsonConvert.DeserializeObject(addProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
-            Assert.True(_result);
-            //Assert.Throws<Exception>(() => productService.AddProduct(product));
+            Assert.True(_result); 
         }
 
         [Fact]
@@ -74,10 +73,11 @@ namespace OnlineRetailShop.Tests
             var product = new ProductInput()
             {
                 ProductId = Guid.Parse("99714c41-e378-44f1-b0b4-4c5eec741909"),
-                ProductName = "IPhone 6",
-                Quantity = 200
-            };
-            //Assert.Throws<Exception>(() => productService.EditProduct(product));
+                ProductName = "IPhone 6s",
+                Quantity = 100,
+                IsActive = true
+
+            }; 
             var editProduct = productService.EditProduct(product);
             var valConv = JsonConvert.DeserializeObject(editProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
@@ -88,13 +88,10 @@ namespace OnlineRetailShop.Tests
         [Fact]
         public void TestDeleteProductExpectTrue()
         {
-            var deleteProduct = productService.DeleteProduct(Guid.Parse("4f30f56b-a6f0-4c3f-ba3a-b52fe15d4355"));
+            var deleteProduct = productService.DeleteProduct(Guid.Parse("0ffde5df-f178-4700-818a-3888aa7a84e2"));
             var valConv = JsonConvert.DeserializeObject(deleteProduct.Content.ToString());
-            var _result = valConv.ToString() == "Success" ? true : false;
-
-            Assert.True(_result);
-            //Assert.False(deleteProduct.Content != "Success");
-            //Assert.Throws<Exception>(() => productService.DeleteProduct(product.ProductId));
+            var _result = valConv.ToString() == "Success" ? true : false; 
+            Assert.True(_result); 
         }
     }
 }

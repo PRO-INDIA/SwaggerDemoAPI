@@ -55,8 +55,7 @@ namespace OnlineRetailShop.Tests
             var addProduct = orderService.AddOrder(order);
             var valConv = JsonConvert.DeserializeObject(addProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
-            Assert.True(_result);
-            //Assert.Throws<Exception>(() => productService.AddProduct(product));
+            Assert.True(_result); 
         }
 
         [Fact]
@@ -70,8 +69,7 @@ namespace OnlineRetailShop.Tests
 
         [Fact]
         public void TestEditOrderExpectTrue()
-        { 
-            //Assert.Throws<Exception>(() => productService.EditProduct(product));
+        {  
             var editProduct = orderService.UpdateOrder(Guid.Parse("ad696e46-dc2c-4141-8ce8-ac617dde0f67"), 50);
             var valConv = JsonConvert.DeserializeObject(editProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
@@ -84,9 +82,7 @@ namespace OnlineRetailShop.Tests
             var deleteProduct = orderService.CancelOrder(Guid.Parse("b71a497e-6b83-4139-b87c-3ed8a8975ad8"));
             var valConv = JsonConvert.DeserializeObject(deleteProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
-            Assert.True(_result);
-            //Assert.False(deleteProduct.Content != "Success");
-            //Assert.Throws<Exception>(() => productService.DeleteProduct(product.ProductId));
+            Assert.True(_result); 
         }
     }
 }
