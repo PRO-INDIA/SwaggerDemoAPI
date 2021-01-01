@@ -34,6 +34,18 @@ jobs:
           dotnet build --configuration Release 
           dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
+    # Run dotnet build and publish
+      - name: Unit Test
+        run: |
+         cd ./OnlineRetailShop.Tests/
+         dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+      
+      - name: Publish coverage report to coveralls.io
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUBTOKEN }}
+          path-to-lcov: ./OnlineRetailShop.Tests/TestResults/coverage.info   
+      
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'
         uses: azure/webapps-deploy@v2
