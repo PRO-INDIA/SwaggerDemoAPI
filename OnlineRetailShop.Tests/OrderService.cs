@@ -70,7 +70,7 @@ namespace OnlineRetailShop.Tests
         [Fact]
         public void TestEditOrderExpectTrue()
         {  
-            var editProduct = orderService.UpdateOrder(Guid.Parse("4806b6bd-c766-4c31-beb7-aae923b39f0f"), 50);
+            var editProduct = orderService.UpdateOrder(Guid.Parse("4806b6bd-c766-4c31-beb7-aae923b39f0f"), 20);
             var valConv = JsonConvert.DeserializeObject(editProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
             Assert.True(_result);
@@ -79,7 +79,7 @@ namespace OnlineRetailShop.Tests
         [Fact]
         public void TestCancelOrderExpectTrue()
         {
-            var deleteProduct = orderService.CancelOrder(Guid.Parse("b71a497e-6b83-4139-b87c-3ed8a8975ad8"));
+            var deleteProduct = orderService.CancelOrder(Guid.Parse("19be237e-2f57-447b-888d-fa8684b9dc84"));
             var valConv = JsonConvert.DeserializeObject(deleteProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
             Assert.True(_result); 
