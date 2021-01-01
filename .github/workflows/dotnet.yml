@@ -38,6 +38,7 @@ jobs:
       - name: Unit Test
         run: |
          cd ./OnlineRetailShop.Tests/
+         dotnet add package coverlet.msbuild
          dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
       
       - name: Publish coverage report to coveralls.io
