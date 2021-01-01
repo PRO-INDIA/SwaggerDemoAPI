@@ -44,7 +44,7 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUBTOKEN }}
-          path-to-lcov: ./MyLibrary.Tests/TestResults/coverage.info   
+          path-to-lcov: ./OnlineRetailShop.Tests/TestResults/coverage.info   
       
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'
