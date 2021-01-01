@@ -27,7 +27,7 @@ namespace OnlineRetailShop
          
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnlineRetailShop", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnlineRetailShop",Description="TestAPI", Version = "v1" });
             });
 
             var connection = Configuration.GetConnectionString("DatabaseConnection");
@@ -57,7 +57,7 @@ namespace OnlineRetailShop
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "OnlineRetailShop V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "OnlineRetailShop");
                 c.RoutePrefix = string.Empty;
             });
 
