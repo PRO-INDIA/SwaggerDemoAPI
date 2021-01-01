@@ -47,8 +47,8 @@ namespace OnlineRetailShop.Tests
             var order = new OrderInput()
             {
                 OrderId = Guid.NewGuid(),
-                ProductId = Guid.Parse("a663a20c-4b0d-4e46-88b4-b6d9d932b7b5 "),
-                CustomerId = Guid.Parse("accb8b6d-5960-4339-9baf-989dc2fdd50a"),
+                ProductId = Guid.Parse("accb8b6d-5960-4339-9baf-989dc2fdd50a"),
+                CustomerId = Guid.Parse("a663a20c-4b0d-4e46-88b4-b6d9d932b7b5"),
                 Quantity = 100
             };
           
@@ -72,7 +72,7 @@ namespace OnlineRetailShop.Tests
         public void TestEditOrderExpectTrue()
         { 
             //Assert.Throws<Exception>(() => productService.EditProduct(product));
-            var editProduct = orderService.UpdateOrder(Guid.Parse("b71a497e-6b83-4139-b87c-3ed8a8975ad8"), 40);
+            var editProduct = orderService.UpdateOrder(Guid.Parse("b71a497e-6b83-4139-b87c-3ed8a8975ad8"), 50);
             var valConv = JsonConvert.DeserializeObject(editProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
             Assert.True(_result);
@@ -81,7 +81,7 @@ namespace OnlineRetailShop.Tests
         [Fact]
         public void TestCancelOrderExpectTrue()
         {
-            var deleteProduct = orderService.CancelOrder(Guid.Parse("4806b6bd-c766-4c31-beb7-aae923b39f0f"));
+            var deleteProduct = orderService.CancelOrder(Guid.Parse("f36e1160-1d38-427a-b18f-39b5f492de7a"));
             var valConv = JsonConvert.DeserializeObject(deleteProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
             Assert.True(_result);
