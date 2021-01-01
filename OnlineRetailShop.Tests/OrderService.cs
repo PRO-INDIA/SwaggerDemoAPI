@@ -47,7 +47,7 @@ namespace OnlineRetailShop.Tests
             var order = new OrderInput()
             {
                 OrderId = Guid.NewGuid(),
-                ProductId = Guid.Parse("0ffde5df-f178-4700-818a-3888aa7a84e2"),
+                ProductId = Guid.Parse("ec2e823e-564a-43e3-8193-41cda041a9ce"),
                 CustomerId = Guid.Parse("a663a20c-4b0d-4e46-88b4-b6d9d932b7b5"),
                 Quantity = 100
             };
@@ -70,7 +70,7 @@ namespace OnlineRetailShop.Tests
         [Fact]
         public void TestEditOrderExpectTrue()
         {  
-            var editProduct = orderService.UpdateOrder(Guid.Parse("ad696e46-dc2c-4141-8ce8-ac617dde0f67"), 50);
+            var editProduct = orderService.UpdateOrder(Guid.Parse("4806b6bd-c766-4c31-beb7-aae923b39f0f"), 50);
             var valConv = JsonConvert.DeserializeObject(editProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
             Assert.True(_result);
