@@ -48,7 +48,7 @@ namespace OnlineRetailShop.Tests
             var product = new ProductInput()
             {
                 ProductId = Guid.NewGuid(),
-                ProductName = "Surface ProX",
+                ProductName = "SurfaceX",
                 Quantity = 100
             };   
             var addProduct = productService.AddProduct(product);
@@ -74,7 +74,7 @@ namespace OnlineRetailShop.Tests
             {
                 ProductId = Guid.Parse("99714c41-e378-44f1-b0b4-4c5eec741909"),
                 ProductName = "IPhone5SE",
-                Quantity = 200,
+                Quantity = 150,
                 IsActive = true
 
             }; 
@@ -88,7 +88,7 @@ namespace OnlineRetailShop.Tests
         [Fact]
         public void TestDeleteProductExpectTrue()
         {
-            var deleteProduct = productService.DeleteProduct(Guid.Parse("ec2e823e-564a-43e3-8193-41cda041a9ce"));
+            var deleteProduct = productService.DeleteProduct(Guid.Parse("724c1128-16ac-4efd-8021-a41ff323ca07"));
             var valConv = JsonConvert.DeserializeObject(deleteProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false; 
             Assert.True(_result); 
