@@ -48,8 +48,8 @@ namespace OnlineRetailShop.Tests
 
             var customer = new CustomerInput()
             {
-                CustomerName ="Anbu", 
-                EmailID="anbu",
+                CustomerName ="Anbu Mani", 
+                EmailID="anbu@anbu",
                 Mobile="0000000000"  
             };
             
