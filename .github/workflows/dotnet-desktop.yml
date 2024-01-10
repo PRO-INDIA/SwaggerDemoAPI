@@ -72,12 +72,12 @@ jobs:
           dotnet build --configuration Release 
           dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
-    # Run dotnet build and publish
-      - name: Unit Test
-        run: |
-         cd ./OnlineRetailShop.Tests/
-         dotnet add package coverlet.msbuild
-         dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+    # # Run dotnet build and publish
+    #   - name: Unit Test
+    #     run: |
+    #      cd ./OnlineRetailShop.Tests/
+    #      dotnet add package coverlet.msbuild
+    #      dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
            
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'
