@@ -1,9 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace OnlineRetailShop.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class shopverbose : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

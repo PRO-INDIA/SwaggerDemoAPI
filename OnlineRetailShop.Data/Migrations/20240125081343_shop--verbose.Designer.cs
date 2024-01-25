@@ -7,19 +7,22 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineRetailShop.Data.DBContext;
 
+#nullable disable
+
 namespace OnlineRetailShop.Data.Migrations
 {
     [DbContext(typeof(OnlineRetailShopEntity))]
-    [Migration("20201231110926_Initial")]
-    partial class Initial
+    [Migration("20240125081343_shop--verbose")]
+    partial class shopverbose
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.1");
+                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1, 1);
 
             modelBuilder.Entity("OnlineRetailShop.Data.Entities.Customer", b =>
                 {
