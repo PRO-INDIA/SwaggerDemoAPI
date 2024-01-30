@@ -12,8 +12,8 @@ using OnlineRetailShop.Data.DBContext;
 namespace OnlineRetailShop.Data.Migrations
 {
     [DbContext(typeof(OnlineRetailShopEntity))]
-    [Migration("20240125081343_shop--verbose")]
-    partial class shopverbose
+    [Migration("20240130162723_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace OnlineRetailShop.Data.Migrations
                 .HasAnnotation("ProductVersion", "6.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("OnlineRetailShop.Data.Entities.Customer", b =>
                 {
