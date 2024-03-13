@@ -1,5 +1,5 @@
 ﻿using System;
-using Xunit; 
+using Xunit;
 using OnlineRetailShop.Business.Interface;
 using OnlineRetailShop.Business.Repository;
 using OnlineRetailShop.Data.DBContext;
@@ -18,7 +18,7 @@ namespace OnlineRetailShop.Tests
         public OnlineRetailShopEntity dbContext;
         public IOrderBusiness orderService;
         private IConfiguration _config;
-      
+
         public OrderService()
         {
             var connection = Configuration.GetConnectionString("DatabaseConnection");
@@ -44,18 +44,17 @@ namespace OnlineRetailShop.Tests
         [Fact]
         public void TestAddOrderExpectTrue()
         {
-            var order = new OrderInput()
+            var order = new CreateOrderInput()
             {
-                OrderId = Guid.NewGuid(),
                 ProductId = Guid.Parse("157771ae-67a0-46c8-8453-0eafcdf4006a"),
                 CustomerId = Guid.Parse("a663a20c-4b0d-4e46-88b4-b6d9d932b7b5"),
                 Quantity = 20
             };
-          
+
             var addProduct = orderService.AddOrder(order);
             var valConv = JsonConvert.DeserializeObject(addProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
-            Assert.True(_result); 
+            Assert.True(_result);
         }
 
         [Fact]
@@ -69,7 +68,7 @@ namespace OnlineRetailShop.Tests
 
         [Fact]
         public void TestEditOrderExpectTrue()
-        {  
+        {
             var editProduct = orderService.UpdateOrder(Guid.Parse("4806b6bd-c766-4c31-beb7-aae923b39f0f"), 70);
             var valConv = JsonConvert.DeserializeObject(editProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
@@ -82,7 +81,7 @@ namespace OnlineRetailShop.Tests
             var deleteProduct = orderService.CancelOrder(Guid.Parse("3320d00d-74c3-40a0-a465-6a6e6e936f32"));
             var valConv = JsonConvert.DeserializeObject(deleteProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
-            Assert.True(_result); 
+            Assert.True(_result);
         }
     }
 }
