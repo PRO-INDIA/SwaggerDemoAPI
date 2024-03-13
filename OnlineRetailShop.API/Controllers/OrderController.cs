@@ -2,9 +2,6 @@
 using OnlineRetailShop.Business.Interface;
 using OnlineRetailShop.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -32,7 +29,7 @@ namespace OnlineRetailShop.API.Controllers
         }
 
         [HttpPost("AddOrder")]
-        public ContentResult AddOrder([FromBody] OrderInput orderInput)
+        public ContentResult AddOrder([FromBody] CreateOrderInput orderInput)
         {
             return order.AddOrder(orderInput);
         }

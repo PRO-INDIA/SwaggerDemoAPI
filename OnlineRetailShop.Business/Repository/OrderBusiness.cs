@@ -16,7 +16,7 @@ namespace OnlineRetailShop.Business.Repository
         {
             dbContext = onlineRetailShopEntity;
         }
-        public ContentResult AddOrder(OrderInput inputData)
+        public ContentResult AddOrder(CreateOrderInput inputData)
         {
             try
             {

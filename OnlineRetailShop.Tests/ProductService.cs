@@ -18,7 +18,7 @@ namespace OnlineRetailShop.Tests
         public OnlineRetailShopEntity dbContext;
         public IProductBusiness productService;
         private IConfiguration _config;
-       
+
         public ProductService()
         {
             var connection = Configuration.GetConnectionString("DatabaseConnection");
@@ -45,16 +45,15 @@ namespace OnlineRetailShop.Tests
         public void TestAddProductExpectTrue()
         {
 
-            var product = new ProductInput()
+            var product = new CreateProductInput()
             {
-                ProductId = Guid.NewGuid(),
                 ProductName = "SurfaceX",
                 Quantity = 100
-            };   
+            };
             var addProduct = productService.AddProduct(product);
             var valConv = JsonConvert.DeserializeObject(addProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
-            Assert.True(_result); 
+            Assert.True(_result);
         }
 
         [Fact]
@@ -70,14 +69,14 @@ namespace OnlineRetailShop.Tests
         public void TestEditProductExpectTrue()
         {
 
-            var product = new ProductInput()
+            var product = new UpdateProductInput()
             {
                 ProductId = Guid.Parse("99714c41-e378-44f1-b0b4-4c5eec741909"),
                 ProductName = "IPhone5SE",
                 Quantity = 150,
                 IsActive = true
 
-            }; 
+            };
             var editProduct = productService.EditProduct(product);
             var valConv = JsonConvert.DeserializeObject(editProduct.Content.ToString());
             var _result = valConv.ToString() == "Success" ? true : false;
@@ -90,8 +89,8 @@ namespace OnlineRetailShop.Tests
         {
             var deleteProduct = productService.DeleteProduct(Guid.Parse("724c1128-16ac-4efd-8021-a41ff323ca07"));
             var valConv = JsonConvert.DeserializeObject(deleteProduct.Content.ToString());
-            var _result = valConv.ToString() == "Success" ? true : false; 
-            Assert.True(_result); 
+            var _result = valConv.ToString() == "Success" ? true : false;
+            Assert.True(_result);
         }
     }
 }
