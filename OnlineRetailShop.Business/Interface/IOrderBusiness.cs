@@ -9,7 +9,7 @@ namespace OnlineRetailShop.Business.Interface
 
         ContentResult GetAllOrder();
         ContentResult GetOrderById(Guid orderId);
-        ContentResult AddOrder(OrderInput inputData);
+        ContentResult AddOrder(CreateOrderInput inputData);
         ContentResult UpdateOrder(Guid orderId, int quantity);
         ContentResult CancelOrder(Guid orderId);
     }

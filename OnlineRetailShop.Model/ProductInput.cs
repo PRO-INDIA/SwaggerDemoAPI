@@ -1,10 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OnlineRetailShop.Model
 {
-    public class ProductInput
+    public class CreateProductInput
+    {
+        public string ProductName { get; set; }
+        public int Quantity { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class UpdateProductInput
     {
         public Guid ProductId { get; set; }
         public string ProductName { get; set; }

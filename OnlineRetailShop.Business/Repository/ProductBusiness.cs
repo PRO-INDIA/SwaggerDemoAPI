@@ -15,13 +15,13 @@ namespace OnlineRetailShop.Business.Repository
         public ProductBusiness(OnlineRetailShopEntity onlineRetailShopEntity)
         {
             dbContext = onlineRetailShopEntity;
-        } 
+        }
         public ContentResult GetAllProduct()
         {
             try
             {
-                var product = dbContext.Products.Where(x => x.IsActive == true).ToList();
-                if (product is null)
+                var product = dbContext.Products.Where(x => x.IsActive).ToList();
+                if (product.Count is 0)
                 {
                     return new ContentResult
                     {
@@ -50,12 +50,12 @@ namespace OnlineRetailShop.Business.Repository
                     StatusCode = 417
                 };
             }
-        } 
+        }
         public ContentResult GetProductById(Guid productId)
         {
             try
             {
-                var product = dbContext.Products.Where(x => x.ProductId == productId && x.IsActive == true).FirstOrDefault();
+                var product = dbContext.Products.Where(x => x.ProductId == productId && x.IsActive).FirstOrDefault();
                 if (product is null)
                 {
                     return new ContentResult
@@ -87,7 +87,7 @@ namespace OnlineRetailShop.Business.Repository
                 };
             }
         }
-        public ContentResult AddProduct(ProductInput inputData)
+        public ContentResult AddProduct(CreateProductInput inputData)
         {
             try
             {
@@ -146,7 +146,7 @@ namespace OnlineRetailShop.Business.Repository
                 };
             }
         }
-        public ContentResult EditProduct(ProductInput inputData)
+        public ContentResult EditProduct(UpdateProductInput inputData)
         {
             try
             {
@@ -199,7 +199,7 @@ namespace OnlineRetailShop.Business.Repository
                     StatusCode = 417
                 };
             }
-        } 
+        }
         public ContentResult DeleteProduct(Guid productId)
         {
             var product = dbContext.Products.FirstOrDefault(x => x.ProductId == productId);
@@ -233,6 +233,6 @@ namespace OnlineRetailShop.Business.Repository
                     StatusCode = 204
                 };
             }
-        }  
+        }
     }
 }

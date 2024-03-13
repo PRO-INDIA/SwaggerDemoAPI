@@ -5,21 +5,15 @@ using OnlineRetailShop.Business.Interface;
 using OnlineRetailShop.Business.Repository;
 using OnlineRetailShop.Data.DBContext;
 using OnlineRetailShop.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace OnlineRetailShop.Tests
 {
-   public class CustomerService
+    public class CustomerService
     {
         public OnlineRetailShopEntity dbContext;
         public ICustomerBusiness customerService;
         private IConfiguration _config;
-        Guid guid;
         public CustomerService()
         {
             var connection = Configuration.GetConnectionString("DatabaseConnection");
@@ -46,13 +40,13 @@ namespace OnlineRetailShop.Tests
         public void TestAddProductExpectTrue()
         {
 
-            var customer = new CustomerInput()
+            var customer = new CreateCustomerInput()
             {
-                CustomerName ="Anbu Mani", 
-                EmailID="anbu@anbu",
-                Mobile="0000000000"  
+                CustomerName = "Anbu Mani",
+                EmailID = "anbu@anbu",
+                Mobile = "0000000000"
             };
-            
+
             var addProduct = customerService.AddCustomer(customer);
             var result = JsonConvert.DeserializeObject(addProduct.Content.ToString());
             Assert.True(result.Equals("Success"));
